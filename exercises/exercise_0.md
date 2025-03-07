@@ -120,6 +120,13 @@ a) Entities:
 - adress
 - email
 
+**Borrowing**
+- borrowing_id
+- ISBN
+- membership_id
+- return_date
+- borrow_date
+
 
 b) 
 
