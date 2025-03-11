@@ -10,3 +10,13 @@ CREATE TABLE IF NOT EXISTS Customer (
     email VARCHAR(255) NOT NULL,
     address VARCHAR(100) NOT NULL
 );
+
+CREATE TABLE IF NOT EXISTS Orders (
+    order_id SERIAL PRIMARY KEY,
+    customer_id INTEGER NOT NULL, 
+    order_date DATE DEFAULT CURRENT_DATE,
+    FOREIGN KEY (customer_id) REFERENCES Customer (customer_id)
+);
+
+
+-- TODO for reader: implement the rest of the physical logical diagram
