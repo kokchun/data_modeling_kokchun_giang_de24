@@ -1,0 +1,33 @@
+CREATE SCHEMA IF NOT EXISTS exercise1;
+
+DROP TABLE IF EXISTS exercise1.Hospital CASCADE;
+
+DROP TABLE IF EXISTS exercise1.Department CASCADE;
+
+DROP TABLE IF EXISTS exercise1.HospitalDepartment CASCADE;
+
+CREATE TABLE IF NOT EXISTS
+    exercise1.Hospital (
+        hospital_id SERIAL PRIMARY KEY,
+        name VARCHAR(50) NOT NULL,
+        address VARCHAR(100) NOT NULL
+    );
+
+CREATE TABLE IF NOT EXISTS
+    exercise1.Department (
+        department_id SERIAL PRIMARY KEY,
+        name VARCHAR(50) NOT NULL
+    );
+
+CREATE TABLE IF NOT EXISTS
+    exercise1.HospitalDepartment (
+        hospital_id INTEGER,
+        department_id INTEGER,
+        PRIMARY KEY (hospital_id, department_id), -- composite primary key
+        FOREIGN KEY (hospital_id) REFERENCES exercise1.Hospital (hospital_id) ON DELETE CASCADE,
+        FOREIGN KEY (department_id) REFERENCES exercise1.Department (department_id) ON DELETE CASCADE
+    );
+
+-- TODO for reader 
+-- continue to build the rest of the tables 
+-- insert data, try out referential integrity, and try to delete rows 
